@@ -1,0 +1,70 @@
+.box {
+	border: 2px solid #337ab7;
+	background: #fff !important;
+	margin-bottom: 28px;
+	padding: 0px;	
+}
+
+.box-header {
+	height: 36px;
+	font-size: 16px;
+	line-height: 16px;
+  	padding: 10px;
+  	background: #337ab7;
+  	color: white;
+	-webkit-box-shadow: none;
+     	-moz-box-shadow: none;
+          box-shadow: none;
+	overflow: hidden;
+}
+
+
+.box-header i {
+	opacity: .8;
+	cursor: pointer;
+	font-size: 14px;
+	filter: alpha(opacity=80);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+
+.box-header .break{
+	border-left: 1px solid #FFF;
+	margin: -12px 10px -10px 10px;
+	padding: 12px 0px 10px 0px;
+	
+}
+
+.box-header .box-icon {
+	float:right;
+	margin-top: -3px;
+}
+
+.box-header .box-icon i {
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	-ms-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+	opacity: .8;
+	padding-left:10px; 
+	filter: alpha(opacity=80);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+
+.box-header .box-icon i:hover {
+	opacity: 1;
+	filter: alpha(opacity=100);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+.box-header .box-icon a {
+	margin: 0px 5px;
+}
+
+.box-content {
+	position: relative;
+	z-index: 50;
+  	margin-top: -1px;
+	padding: 10px;
+	background: #fff !important;
+}

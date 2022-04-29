@@ -1,0 +1,77 @@
+create table usuarios(
+	login varchar(20)not null primary key,
+	clave varchar(20)not null,
+   	nombres varchar(40) not null,
+   	apellidos varchar(40)not null
+)
+create table proveedores(
+	ciproveedor varchar(15) not null primary key,
+	nombres varchar(40) not null,
+   	apellidos varchar(40)not null
+)
+
+create table compras(
+	idcompra serial not null primary key,
+	loginusu varchar(20),
+	ciproveedor varchar(15),
+   	nombrecomprador varchar(40) not null,
+	cicomprador varchar(15),
+	fechacompra date,
+	horacompra time,
+	FOREIGN KEY(loginusu) REFERENCES usuarios(login),
+	FOREIGN KEY(ciproveedor) REFERENCES proveedores(ciproveedor)
+)
+
+create table gastos(
+	idgasto serial not null primary key,
+	loginusu varchar(20),
+	cajainicial integer,
+	fechagasto date,
+	horagasto time,
+	descripcion varchar(40),
+	montogasto double precision,
+	FOREIGN KEY(loginusu) REFERENCES usuarios(login)
+)
+create table clientes(
+	nombres varchar(40) not null primary key,
+   	apellidos varchar(40)not null
+)
+create table ventas(
+	idventa serial not null primary key,
+	fechaventa date,
+	horaventa time,
+	loginusu varchar(20),
+	nombrecli varchar(40),
+	FOREIGN KEY(loginusu) REFERENCES usuarios(login),
+	FOREIGN KEY(nombrecli) REFERENCES clientes(nombres)
+)
+create table productos(
+	idproducto integer not null primary key,
+	nombre varchar(40) not null,
+	punit double precision,
+	cantidad double precision,
+	inventario integer
+)
+create table detcompra(
+	idproducto integer not null ,
+	idcompra integer not null,
+	primary key (idproducto,idcompra),
+	FOREIGN KEY(idproducto) REFERENCES productos(idproducto),
+	FOREIGN KEY(idcompra) REFERENCES compras(idcompra)
+)
+
+create table detventa(
+	idproducto integer not null,
+	idventa integer not null,
+	primary key (idproducto,idventa),
+	FOREIGN KEY(idproducto) REFERENCES productos(idproducto),
+	FOREIGN KEY(idventa) REFERENCES ventas(idventa)
+)
+
+create table reportes(
+	idreporte serial not null primary key,
+	loginusu varchar(20),
+	fechareporte date,
+	horareporte time,
+	FOREIGN KEY(loginusu) REFERENCES usuarios(login)
+)
